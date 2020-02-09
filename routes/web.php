@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'RepositoryController@index')->name('get.index');
+Route::get('/show', 'RepositoryController@show')->name('get.show');
+Route::get('/clear', 'RepositoryController@clear')->name('get.clear');
+Route::get('save/{id}', 'RepositoryController@save');
+Route::get('delete/{id}', 'RepositoryController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
